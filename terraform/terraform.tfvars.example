@@ -1,0 +1,24 @@
+project_id  = "your-gcp-project-id-here"
+name_prefix = "demo"
+region      = "us-central1"
+environment = "dev"
+
+# Database configuration
+postgres_version = "15"
+database_tier    = "db-f1-micro"  # Use db-n1-standard-1 for production
+
+# Cloud Run configuration
+cloud_run_image  = "gcr.io/cloudrun/hello"
+cloud_run_memory = 256  # MB
+
+# Network configuration
+enable_firewall_rules = true
+allowed_source_ranges = ["0.0.0.0/0"]  # RESTRICT THIS IN PRODUCTION!
+
+# Labels for resource tracking
+labels = {
+  project     = "gcp-postgres-terraform-example"
+  managed_by  = "terraform"
+  environment = "dev"
+  cost_center = "engineering"
+}
